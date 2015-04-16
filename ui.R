@@ -1,16 +1,18 @@
 #EventViz is released under the MIT License (MIT)
 #Copyright (c) 2015 Russ McRee, HolisticInfoSec
+#EventViz v0.1 - 5 FEB 2015
+#EventViz v0.2 - 15 APR 2015
 
 library(shiny)
+library(readr)
 
 setwd("C:/coding/R/apps/EventViz")
-df <- read.csv("sysmon.csv",header=FALSE,skip=1,row.names=NULL,stringsAsFactors=FALSE,sep=",",
-               col.names=c("Level","DateTime","Source","EventID","TaskCategory","Message"))
+df <- read_csv("sysmon.csv", col_names=c("Level","DateTime","Source","EventID","TaskCategory","Message"))
 
 # Define UI
 shinyUI(
         fluidPage(
-                titlePanel("EventViz v0.1"),
+                titlePanel("EventViz v0.2"),
                 
                 # Create new row in UI for selectInputs
                 fluidRow(
